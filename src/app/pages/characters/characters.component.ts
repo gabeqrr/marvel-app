@@ -8,13 +8,13 @@ import { CharactersService } from '../../services/characters.service';
   styles: [],
 })
 export class CharactersComponent implements OnInit {
-  constructor(private charactersService: CharactersService) {}
-
   characters: Character = {} as Character;
+
+  constructor(private charactersService: CharactersService) {}
 
   ngOnInit() {
     this.charactersService
       .getCharacters()
-      .subscribe((result) => (this.characters = result));
+      .subscribe((characters) => (this.characters = characters));
   }
 }

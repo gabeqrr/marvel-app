@@ -1,0 +1,22 @@
+<div class="container">
+  <ol class="list-unstyled">
+    <li *ngFor="let cols of rows" class="row">
+      <div class="col-2 text-center p-2"
+      *ngFor="let character of cols | paginate: { itemsPerPage: counter, currentPage: page }" >
+        <div class="card">
+          <img class="card-img-top" [src]="character.thumbnail.path + '.' + character.thumbnail.extension" height="180px">
+          <div class="card-body bg-dark text-white" style="height: 180px;">
+            <h5 class="card-title">{{ character.name }}</h5>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <div class="text-center" style="margin-bottom: 120px;">
+    <pagination-controls
+      (pageChange)="page = $event"
+      previousLabel="Previous"
+		  nextLabel="Next">
+    </pagination-controls>
+  </div>
+</div>
