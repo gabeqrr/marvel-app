@@ -1,23 +1,6 @@
-<!-- <app-search-bar></app-search-bar> -->
+<app-search-bar></app-search-bar>
 
-<app-characters-list [character]="characters"></app-characters-list>
-
-<!-- <nav style="margin-bottom: 80px;">
-  <ul class="pagination pagination-lg justify-content-center">
-    <li class="page-item" role="button">
-      <a class="page-link">Previous</a>
-    </li>
-    <li class="page-item active" role="button">
-      <a class="page-link">1</a>
-    </li>
-    <li class="page-item" role="button">
-      <a class="page-link">2</a>
-    </li>
-    <li class="page-item" role="button">
-      <a class="page-link">3</a>
-    </li>
-    <li class="page-item" role="button">
-      <a class="page-link">Next</a>
-    </li>
-  </ul>
-</nav> -->
+<app-characters-list
+  [character]="characters"
+  (status)="setOffsetForPaginationCharacters($event)"
+></app-characters-list>

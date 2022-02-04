@@ -1,5 +1,10 @@
 body {
-  background-color: brown;
+  background-color: rgb(59, 59, 59);
+}
+
+@font-face {
+  font-family: 'RobotoCondensed Bold';
+  src: url('./assets/fonts/RobotoCondensed-Bold.ttf') format('truetype');
 }
 
 /* div {

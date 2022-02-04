@@ -1,22 +1,63 @@
-<div class="container">
+<div class="container" style="margin-bottom: 80px;">
   <ol class="list-unstyled">
-    <li *ngFor="let cols of rows" class="row">
+    <li class="row" *ngFor="let cols of (rows | paginate: { itemsPerPage: character?.data?.limit, currentPage: page, totalItems: character?.data?.total })">
       <div class="col-2 text-center p-2"
-      *ngFor="let character of cols | paginate: { itemsPerPage: counter, currentPage: page }" >
-        <div class="card">
-          <img class="card-img-top" [src]="character.thumbnail.path + '.' + character.thumbnail.extension" height="180px">
-          <div class="card-body bg-dark text-white" style="height: 180px;">
-            <h5 class="card-title">{{ character.name }}</h5>
+      *ngFor="let character of cols">
+        <div class="card" style="background: rgba(0, 0, 0, 0);">
+          <img
+            class="card-img-top" [src]="character.thumbnail.path + '.' + character.thumbnail.extension" height="200px" style="border-radius: 40px 0px 0px 0px;"
+          >
+          <div
+            class="card text-white"
+            style="height: 200px; background: rgb(20, 20, 20); font-family: 'RobotoCondensed Bold'; border-radius: 0px 0px 40px 0px; border-top: 5px solid #EE171F;"
+          >
+            <div class="card-title m-3">
+              <h5>{{ character.name }}</h5>
+            </div>
+            <div class="card-footer position-absolute bottom-0 border-0">
+              <tr>
+                <td class="p-2">
+                  <h4>{{ character.comics.available }}</h4>
+                  <small>Comics</small>
+                </td>
+                <td class="p-2">
+                  <h4>{{ character.stories.available }}</h4>
+                  <small>Stories</small>
+                </td>
+                <td class="p-2">
+                  <h4>{{ character.series.available }}</h4>
+                  <small>Series</small>
+                </td>
+              </tr>
+            </div>
           </div>
         </div>
       </div>
     </li>
   </ol>
-  <div class="text-center" style="margin-bottom: 120px;">
+  <div class="text-center">
     <pagination-controls
-      (pageChange)="page = $event"
+      class="my-pagination"
+      (pageChange)="applyOffsetForPagination((page = $event))"
+      [maxSize]="11"
       previousLabel="Previous"
-		  nextLabel="Next">
+		  nextLabel="Next"
+    >
     </pagination-controls>
+    <style>
+      .my-pagination {
+        font-size: x-large;
+        font-family: 'RobotoCondensed Bold';
+        color: white;
+      }
+
+      .my-pagination /deep/ .ngx-pagination .current {
+        background: #EE171F;
+      }
+
+      .my-pagination /deep/ .ngx-pagination :hover {
+        color: black;
+      }
+    </style>
   </div>
 </div>

@@ -13,8 +13,20 @@ export class CharactersComponent implements OnInit {
   constructor(private charactersService: CharactersService) {}
 
   ngOnInit() {
+    this.setCharacters();
+  }
+
+  setCharacters() {
     this.charactersService
-      .getCharacters()
-      .subscribe((characters) => (this.characters = characters));
+    .getCharacters()
+    .subscribe((characters) => (this.characters = characters));
+  }
+
+  setOffsetForPaginationCharacters(event: Character) {
+    console.log('EVENT:', event);
+    this.characters = event;
+    this.setCharacters();
+
+    console.log('CHARACTERS:', this.characters);
   }
 }

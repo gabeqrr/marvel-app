@@ -1,14 +1,32 @@
-<!-- <form
+<form
   novalidate
-  (ngSubmit)="searchCharacter()"
-  [formGroup]="searchForm"
-  class="d-flex p-3 w-25 m-auto"
+  class="d-flex p-3 m-auto pt-5 mt-5 mb-4"
 >
   <input
-    formControlName="search"
-    class="form-control form-control-lg"
+    class="my-input m-auto"
     type="text"
     placeholder="Search"
   />
-  <button class="btn btn-lg btn-success" type="submit">Search</button>
-</form> -->
+</form>
+
+<style>
+  input {
+    background: rgba(0, 0, 0, 0);
+    border-bottom: 3px solid white;
+    border-right: 0; border-left: 0;
+    border-top: 0;
+    font-size: x-large;
+    font-family: 'RobotoCondensed Bold';
+    width: 500px;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+  }
+
+  input[type=text]:focus {
+    color: white;
+    outline-width: 0;
+    font-size: x-large;
+    border-bottom: 5px solid #EE171F;
+    width: 600px;
+  }
+</style>
