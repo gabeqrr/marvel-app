@@ -2,13 +2,13 @@ import {
   Component,
   Input,
   OnChanges,
+  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
 import { Character } from 'src/app/interfaces/character';
 import { CharactersService } from 'src/app/services/characters.service';
 import { EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-characters-list',
@@ -21,13 +21,11 @@ export class CharactersListComponent implements OnChanges {
 
   rows: any[] = [];
   page: number = 1;
+  sortedDesc: any[];
 
-  colsOfCharacters: number = 6
+  colsOfCharacters: number = 6;
 
-  constructor(
-    private charactersService: CharactersService,
-    private router: Router
-  ) {}
+  constructor(private charactersService: CharactersService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.character) {
@@ -46,13 +44,10 @@ export class CharactersListComponent implements OnChanges {
   }
 
   applyOffsetForPagination(page: any) {
-    console.log('PAGE', page);
     let limit = this.character.data.limit;
     let offset = page * limit - limit;
-    console.log('OFFSET', offset);
     this.charactersService.offSetForPagination = offset;
-    this.character.data.offset = offset;
     this.status.emit(this.character);
-    window.scroll(0,0);
+    window.scroll(0, 0);
   }
 }

@@ -3,14 +3,11 @@
     <li class="row" *ngFor="let cols of (rows | paginate: { itemsPerPage: character?.data?.limit, currentPage: page, totalItems: character?.data?.total })">
       <div class="col-2 text-center p-2"
       *ngFor="let character of cols">
-        <div class="card" style="background: rgba(0, 0, 0, 0);">
+        <div class="card" style="background: transparent">
           <img
             class="card-img-top" [src]="character.thumbnail.path + '.' + character.thumbnail.extension" height="200px" style="border-radius: 40px 0px 0px 0px;"
           >
-          <div
-            class="card text-white"
-            style="height: 200px; background: rgb(20, 20, 20); font-family: 'RobotoCondensed Bold'; border-radius: 0px 0px 40px 0px; border-top: 5px solid #EE171F;"
-          >
+          <div class="my-card card text-white">
             <div class="card-title m-3">
               <h5>{{ character.name }}</h5>
             </div>
@@ -41,23 +38,31 @@
       (pageChange)="applyOffsetForPagination((page = $event))"
       [maxSize]="11"
       previousLabel="Previous"
-		  nextLabel="Next"
-    >
+		  nextLabel="Next">
     </pagination-controls>
-    <style>
-      .my-pagination {
-        font-size: x-large;
-        font-family: 'RobotoCondensed Bold';
-        color: white;
-      }
-
-      .my-pagination /deep/ .ngx-pagination .current {
-        background: #EE171F;
-      }
-
-      .my-pagination /deep/ .ngx-pagination :hover {
-        color: black;
-      }
-    </style>
   </div>
 </div>
+
+<style>
+  .my-pagination {
+    font-size: x-large;
+    font-family: 'RobotoCondensed Bold';
+    color: white;
+  }
+
+  .my-pagination /deep/ .ngx-pagination .current {
+    background: #EE171F;
+  }
+
+  .my-pagination /deep/ .ngx-pagination :hover {
+    color: black;
+  }
+
+  .my-card {
+    height: 200px;
+    background: rgb(20, 20, 20);
+    font-family: 'RobotoCondensed Bold';
+    border-radius: 0px 0px 40px 0px;
+    border-top: 5px solid #EE171F;
+  }
+</style>

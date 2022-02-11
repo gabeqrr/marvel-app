@@ -23,6 +23,7 @@ import { StoriesService } from './services/stories.service';
 import { MenuService } from './services/menu.service';
 import { SearchBarComponent } from './layout/search-bar/search-bar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     CharactersService,

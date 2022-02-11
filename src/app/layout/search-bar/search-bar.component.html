@@ -1,32 +1,34 @@
-<form
-  novalidate
-  class="d-flex p-3 m-auto pt-5 mt-5 mb-4"
->
-  <input
-    class="my-input m-auto"
-    type="text"
-    placeholder="Search"
-  />
-</form>
+<div class="container p-0">
+  <form novalidate class="d-flex pt-5 mt-5 mb-4" [formGroup]="settings">
+    <input
+      class="my-input"
+      type="text"
+      placeholder="Search"
+      formControlName="search"
+    />
+  </form>
+</div>
 
 <style>
-  input {
+  .my-input {
+    margin: 0 auto;
     background: rgba(0, 0, 0, 0);
     border-bottom: 3px solid white;
-    border-right: 0; border-left: 0;
+    border-right: 0;
+    border-left: 0;
     border-top: 0;
     font-size: x-large;
     font-family: 'RobotoCondensed Bold';
     width: 500px;
-    -webkit-transition: width .35s ease-in-out;
-    transition: width .35s ease-in-out;
+    -webkit-transition: width 0.35s ease-in-out;
+    transition: width 0.35s ease-in-out;
   }
 
-  input[type=text]:focus {
+  .my-input[type='text']:focus {
     color: white;
     outline-width: 0;
     font-size: x-large;
-    border-bottom: 5px solid #EE171F;
+    border-bottom: 5px solid #ee171f;
     width: 600px;
   }
 </style>
