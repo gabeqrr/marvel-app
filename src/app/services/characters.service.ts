@@ -10,11 +10,7 @@ import { config } from '../config'
   providedIn: 'root',
 })
 export class CharactersService {
-  // readonly publicKey = 'e44fe0e69ed953bf266c2fdefbf9d907';
-  // readonly privateKey = 'e7ade4300b74e8f178b6a4dd4220fd77f51d81d1';
-
   readonly time = Number(new Date());
-
   readonly md5 = new Md5();
   readonly hash = this.md5
     .appendStr(this.time + config.privateKey + config.publicKey)
